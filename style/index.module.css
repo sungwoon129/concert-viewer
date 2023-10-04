@@ -1,0 +1,45 @@
+
+
+.ConcertListBlock {
+     display: flex;
+    gap: 20px 2%;
+    flex-wrap: wrap;
+    
+}
+.ConcertListBlock {
+    position: relative;
+    margin: 100px auto;
+    padding: 40px 10px 10px 10px;
+    max-width: 850px;
+    background-color: rgb(0, 0, 0);
+    color: #FFF;
+}
+
+.ConcertItemBlock {
+    width: 32%;
+    color: #EFEFEF;
+    
+}
+
+.thumbnail {
+    margin-right: 1rem;
+  }
+  .thum_img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+  .contents {
+    .sub {
+      margin: 0;
+      .sublink {
+        color: #000;
+      }
+    }
+    .contensts-p {
+      margin: 0;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+      white-space: normal;
+    }
+  }

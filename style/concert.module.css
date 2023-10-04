@@ -1,0 +1,28 @@
+.ConcertItemBlock {
+    width: 32%;
+    color: #EFEFEF;
+    
+}
+
+.thumbnail {
+    margin-right: 1rem;
+  }
+  .thum_img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+  .contents {
+    .sub {
+      margin: 0;
+      .sublink {
+        color: #000;
+      }
+    }
+    .contensts-p {
+      margin: 0;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+      white-space: normal;
+    }
+  }
