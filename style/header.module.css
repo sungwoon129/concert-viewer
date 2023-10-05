@@ -1,0 +1,27 @@
+.categoryBlock {
+    color: #FEFEFE;
+    margin: 0 auto;
+    display: flex;
+    max-width: 850px;
+    align-items: center;
+    font-weight: bold;
+
+    .category {
+        color: #FEFEFE;
+        font-size: 1.4rem;
+    }
+
+    .categoryLink + .categoryLink {
+        margin-left: 3rem;
+    }
+}
+
+.periodBox {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 1rem;
+}
+
+.categoryLink {
+    text-decoration: none;
+}
