@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import styles from "../style/index.module.css";
+import styles from "../../style/index.module.css";
 
 const ConcertItem = ({ item }) => {
   const {
@@ -15,13 +15,13 @@ const ConcertItem = ({ item }) => {
     openrun,
   } = item;
 
-  const url = "pages/concert/" + mt20id._text;
+  const url = "item/" + mt20id._text;
 
   return (
     <div className={styles.ConcertItemBlock}>
       {poster && (
         <div className={styles.thumbnail}>
-          <Link href={url}>
+          <Link href={{ pathname: url, query: { category: "01" } }}>
             <img
               className={styles.thum_img}
               src={poster._text}
@@ -31,11 +31,7 @@ const ConcertItem = ({ item }) => {
         </div>
       )}
       <div className={styles.contents}>
-        <h2 className={styles.sub}>
-          <Link className={styles.sublink} href={url}>
-            {prfnm._text}
-          </Link>
-        </h2>
+        <h3 className={styles.sub}>{prfnm._text}</h3>
         <div>
           {prfpdfrom._text} - {prfpdto._text}
         </div>

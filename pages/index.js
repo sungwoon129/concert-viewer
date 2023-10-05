@@ -3,19 +3,22 @@ import { useInfiniteQuery } from "react-query";
 import axios from "axios";
 import useLocalStorage from "use-local-storage";
 import { useObserver } from "../lib/hooks/useObserver";
-import ConcertItem from "../components/ConcertItem";
+import ConcertItem from "../components/classic/ConcertItem";
 import style from "../style/index.module.css";
 import convert from "xml-js";
 import moment from "moment";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const initPage = 1;
+const initOffset = 9;
 let from = moment().endOf("week").add(1, "d").format("YYYYMMDD");
 let to = moment().endOf("week").add(1, "d").endOf("week").format("YYYYMMDD");
 
-const getConcertList = ({ pageParam = initPage }) =>
+const getConcertList = ({ pageParam = initPage, url, offset = initOffset }) =>
   axios
     .get(
-      `${process.env.NEXT_PUBLIC_URL}/api/openApi/restful/pblprfr?service=${process.env.NEXT_PUBLIC_SERVICEKEY}&stdate=${from}&eddate=${to}&cpage=${pageParam}&rows=9&prfstate=01,02`
+      `${process.env.NEXT_PUBLIC_URL}/api/openApi/restful/pblprfr?service=${process.env.NEXT_PUBLIC_SERVICEKEY}&stdate=${from}&eddate=${to}&cpage=${pageParam}&rows=${offset}&shcate=CCCA&prfstate=01,02`
     )
     .then((response) => {
       const result = convert.xml2json(response.data, {
@@ -62,25 +65,29 @@ const Index = () => {
   }, []);
 
   return (
-    <div className={style.ConcertListBlock}>
-      {status === "loading" && <p>불러오는 중</p>}
+    <>
+      <Header />
+      <div className={style.ConcertListBlock}>
+        {status === "loading" && <p>불러오는 중</p>}
 
-      {status === "error" && <p>{error.message}</p>}
+        {status === "error" && <p>{error.message}</p>}
 
-      {status === "success" && (
-        <div className={style.ConcertListBlock}>
-          {data.pages.map((page, index) =>
-            page.list.map((item, idx) => (
-              <ConcertItem key={item.mt20id._text} item={item} />
-            ))
-          )}
-        </div>
-      )}
+        {status === "success" && (
+          <div className={style.ConcertListBlock}>
+            {data.pages.map((page, index) =>
+              page.list.map((item, idx) => (
+                <ConcertItem key={item.mt20id._text} item={item} />
+              ))
+            )}
+          </div>
+        )}
 
-      <div ref={bottom} />
+        <div ref={bottom} />
 
-      {isFetchingNextPage && <p>계속 불러오는 중</p>}
-    </div>
+        {isFetchingNextPage && <p>계속 불러오는 중</p>}
+      </div>
+      <Footer />
+    </>
   );
 };
 
