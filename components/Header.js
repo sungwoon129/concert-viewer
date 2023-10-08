@@ -1,8 +1,10 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 import moment from "moment";
 import style from "../style/header.module.css";
 
 const Category = () => {
+  const router = useRouter();
   const categories = [
     {
       id: "classic",
@@ -12,12 +14,12 @@ const Category = () => {
     {
       id: "exhibition",
       name: "전시(서울)",
-      url: "exhibition/list",
+      url: "/exhibition/list",
     },
     {
       id: "festival",
       name: "페스티벌(전국)",
-      url: "festival/list",
+      url: "/festival/list",
     },
   ];
 
@@ -30,7 +32,15 @@ const Category = () => {
             key={category.id}
             className={style.categoryLink}
           >
-            <div className={style.category}>{category.name}</div>
+            <div
+              className={
+                router.pathname === category.url
+                  ? style.highLightCategory
+                  : style.normalCategory
+              }
+            >
+              {category.name}
+            </div>
           </Link>
         );
       })}
@@ -39,8 +49,12 @@ const Category = () => {
 };
 
 const Header = () => {
-  let from = moment().endOf("week").add(1, "d").format("YYYYMMDD");
-  let to = moment().endOf("week").add(1, "d").endOf("week").format("YYYYMMDD");
+  let from = moment().endOf("week").add(1, "d").format("YYYY.MM.DD");
+  let to = moment()
+    .endOf("week")
+    .add(1, "d")
+    .endOf("week")
+    .format("YYYY.MM.DD");
 
   return (
     <>

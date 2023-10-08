@@ -6,14 +6,25 @@
     align-items: center;
     font-weight: bold;
 
-    .category {
+    .normalCategory {
         color: #FEFEFE;
+        font-size: 1.4rem;
+    }
+    .highLightCategory {
+        color: dodgerblue;
         font-size: 1.4rem;
     }
 
     .categoryLink + .categoryLink {
         margin-left: 3rem;
     }
+    .categoryLink + .activeLink {
+        margin-left: 3rem;
+    }
+    .activeLink + .categoryLink {
+        margin-left: 3rem;
+    }
+    
 }
 
 .periodBox {
@@ -24,4 +35,8 @@
 
 .categoryLink {
     text-decoration: none;
+}
+.activeLink {
+    text-decoration: none;
+    color: dodgerblue;
 }
