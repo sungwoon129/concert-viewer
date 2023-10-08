@@ -52,8 +52,8 @@ const ExhibitionList = () => {
     status,
   } = useInfiniteQuery("exhibitionList", getExhibitionList, {
     getNextPageParam: (lastPage) => {
-      const { cPage, total } = lastPage;
-      if (total < cPage * 9) return false;
+      const { cPage, list } = lastPage;
+      if (list.length < 9) return false;
 
       return Number(cPage) + 1;
     },
@@ -81,11 +81,14 @@ const ExhibitionList = () => {
 
         {status === "success" && (
           <div className={style.ConcertListBlock}>
-            {data.pages.map((page) =>
-              page.list.map((item) => (
-                <ExhibitionItem key={item.seq._text} item={item} />
-              ))
-            )}
+            {data.pages &&
+              data.pages.map(
+                (page) =>
+                  page.list &&
+                  page.list.map((item) => (
+                    <ExhibitionItem key={item.seq._text} item={item} />
+                  ))
+              )}
           </div>
         )}
 

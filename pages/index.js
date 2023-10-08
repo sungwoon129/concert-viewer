@@ -46,7 +46,9 @@ const Index = () => {
     status,
   } = useInfiniteQuery("concertList", getConcertList, {
     getNextPageParam: (lastPage) => {
-      const { cPage } = lastPage;
+      const { cPage, list } = lastPage;
+
+      if (list.length < 9) return false;
 
       return Number(cPage) + 1;
     },

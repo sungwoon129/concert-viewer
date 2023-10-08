@@ -46,7 +46,9 @@ const FestivalList = () => {
     status,
   } = useInfiniteQuery("festivalList", getFestivalList, {
     getNextPageParam: (lastPage) => {
-      const { cPage } = lastPage;
+      const { cPage, list } = lastPage;
+
+      if (list.length < 9) return false;
 
       return Number(cPage) + 1;
     },
