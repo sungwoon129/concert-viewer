@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import styles from "../../style/index.module.css";
 
-const ConcertItem = ({ item }) => {
+const ConcertItem = ({ item, category }) => {
   const {
     mt20id,
     prfnm,
@@ -15,13 +15,13 @@ const ConcertItem = ({ item }) => {
     openrun,
   } = item;
 
-  const url = "item/" + mt20id._text;
+  const url = "/item/" + mt20id._text;
 
   return (
     <div className={styles.ConcertItemBlock}>
       {poster && (
         <div className={styles.thumbnail}>
-          <Link href={{ pathname: url, query: { category: "01" } }}>
+          <Link href={{ pathname: url, query: { category } }}>
             <img
               className={styles.thum_img}
               src={poster._text}

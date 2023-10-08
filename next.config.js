@@ -5,8 +5,17 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/:path*",
-        destination: "http://www.kopis.or.kr/:path*",
+        source: "/api/classic/:path*",
+        destination: "http://kopis.or.kr/openApi/restful/pblprfr/:path*",
+      },
+      {
+        source: "/api/festival/:path*",
+        destination: "http://kopis.or.kr/openApi/restful/prffest/:path*",
+      },
+      {
+        source: "/api/exhibition/:path*",
+        destination:
+          "http://www.culture.go.kr/openapi/rest/publicperformancedisplays/area/:path*",
       },
     ];
   },

@@ -15,10 +15,10 @@ const initOffset = 9;
 let from = moment().endOf("week").add(1, "d").format("YYYYMMDD");
 let to = moment().endOf("week").add(1, "d").endOf("week").format("YYYYMMDD");
 
-const getConcertList = ({ pageParam = initPage, url, offset = initOffset }) =>
+const getConcertList = ({ pageParam = initPage }) =>
   axios
     .get(
-      `${process.env.NEXT_PUBLIC_URL}/api/openApi/restful/pblprfr?service=${process.env.NEXT_PUBLIC_SERVICEKEY}&stdate=${from}&eddate=${to}&cpage=${pageParam}&rows=${offset}&shcate=CCCA&prfstate=01,02`
+      `${process.env.NEXT_PUBLIC_URL}/api/classic?service=${process.env.NEXT_PUBLIC_CONCERTKEY}&stdate=${from}&eddate=${to}&cpage=${pageParam}&rows=9&prfstate=01,02&shcate=CCCA&signgucode=`
     )
     .then((response) => {
       const result = convert.xml2json(response.data, {
@@ -76,7 +76,11 @@ const Index = () => {
           <div className={style.ConcertListBlock}>
             {data.pages.map((page, index) =>
               page.list.map((item, idx) => (
-                <ConcertItem key={item.mt20id._text} item={item} />
+                <ConcertItem
+                  key={item.mt20id._text}
+                  item={item}
+                  category="classic"
+                />
               ))
             )}
           </div>
