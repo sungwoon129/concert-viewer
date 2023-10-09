@@ -1,34 +1,28 @@
+import ConcertItemAndFestivalDetail from "@/components/ConcertAndFestivalDetail";
+import ExhibitionDetail from "@/components/exhibition/ExhibitionDetail";
 import { useRouter } from "next/router";
-
-const ClassicItem = ({ item }) => {
-  return <></>;
-};
-
-const FestivalItem = ({ item }) => {
-  return <></>;
-};
-
-const ExhibitionItem = ({ item }) => {
-  return <></>;
-};
 
 const Detail = () => {
   const router = useRouter();
-  const category = router.query;
-  console.log(category);
+  const { item, category } = router.query;
 
-  if (category === null || category === undefined)
-    return <p>불러올 데이터가 존재하지 않습니다.</p>;
-
-  {
-    category === "classic" && <ClassicItem></ClassicItem>;
-  }
-  {
-    category === "exhibition" && <ExhibitionItem></ExhibitionItem>;
-  }
-  {
-    category === "festival" && <FestivalItem></FestivalItem>;
-  }
+  return (
+    <>
+      {category === "classic" && (
+        <ConcertItemAndFestivalDetail
+          itemId={item}
+        ></ConcertItemAndFestivalDetail>
+      )}
+      {category === "exhibition" && (
+        <ExhibitionDetail itemId={item}></ExhibitionDetail>
+      )}
+      {category === "festival" && (
+        <ConcertItemAndFestivalDetail
+          itemId={item}
+        ></ConcertItemAndFestivalDetail>
+      )}
+    </>
+  );
 };
 
 export default Detail;
