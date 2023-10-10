@@ -7,6 +7,10 @@
 .imgBox {
     display: flex;
     justify-content: center;
+
+    .poster {
+        cursor: pointer;
+    }
 }
 
 .description {

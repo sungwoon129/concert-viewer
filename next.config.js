@@ -10,6 +10,12 @@ const nextConfig = {
         port: "",
         pathname: "/upload/**",
       },
+      {
+        protocol: "http",
+        hostname: "www.culture.go.kr",
+        port: "",
+        pathname: "/upload/**",
+      },
     ],
   },
   async rewrites() {
@@ -27,9 +33,14 @@ const nextConfig = {
         destination: "http://kopis.or.kr/openApi/restful/pblprfr/:path*",
       },
       {
-        source: "/api/exhibition/:path*",
+        source: "/api/exhibition/list/:path*",
         destination:
-          "http://www.culture.go.kr/openapi/rest/publicperformancedisplays/area/:path*",
+          "http://www.culture.go.kr/openapi/rest/publicperformancedisplays/:path*",
+      },
+      {
+        source: "/api/exhibition/detail",
+        destination:
+          "http://www.culture.go.kr/openapi/rest/publicperformancedisplays/d/",
       },
     ];
   },
