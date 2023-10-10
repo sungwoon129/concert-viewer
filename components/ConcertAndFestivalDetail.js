@@ -69,7 +69,6 @@ const ConcertItemAndFestivalDetail = ({ itemId }) => {
     prfcast,
   } = jsonData.dbs.db;
 
-  console.log(styurls);
   return (
     <>
       <Header />
@@ -89,6 +88,13 @@ const ConcertItemAndFestivalDetail = ({ itemId }) => {
             <div className={style.imgBox}>
               <Image
                 src={poster._text}
+                className={style.poster}
+                onClick={() => {
+                  return window.open(
+                    `https://www.google.com/search?q=${encodeURI(prfnm._text)}`,
+                    "_blank"
+                  );
+                }}
                 alt="포스터 이미지"
                 sizes="210px"
                 width={300}
