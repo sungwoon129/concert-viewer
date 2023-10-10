@@ -8,18 +8,13 @@ const Detail = () => {
 
   return (
     <>
-      {category === "classic" && (
+      {(category === "classic" || category === "festival") && (
         <ConcertItemAndFestivalDetail
           itemId={item}
         ></ConcertItemAndFestivalDetail>
       )}
       {category === "exhibition" && (
         <ExhibitionDetail itemId={item}></ExhibitionDetail>
-      )}
-      {category === "festival" && (
-        <ConcertItemAndFestivalDetail
-          itemId={item}
-        ></ConcertItemAndFestivalDetail>
       )}
     </>
   );
