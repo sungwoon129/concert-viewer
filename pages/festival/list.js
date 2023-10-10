@@ -26,8 +26,13 @@ const getFestivalList = ({ pageParam = initPage }) =>
         spaces: 4,
       });
       const jsonData = JSON.parse(result);
+
+      const list = Array.isArray(jsonData.dbs.db)
+        ? jsonData.dbs.db
+        : [jsonData.dbs.db];
+
       return {
-        list: jsonData.dbs.db,
+        list,
         cPage: pageParam,
       };
     });
@@ -48,7 +53,7 @@ const FestivalList = () => {
     getNextPageParam: (lastPage) => {
       const { cPage, list } = lastPage;
 
-      if (list.length < 9) return false;
+      if (list.length < 9) return undefined;
 
       return Number(cPage) + 1;
     },
