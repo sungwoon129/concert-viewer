@@ -2,11 +2,13 @@
     margin : 4rem auto;
     padding: 1rem 0;
     max-width: 850px;
+    min-height: 750px;
 }
 
 .imgBox {
     display: flex;
     justify-content: center;
+    margin-bottom: 1.5rem;
 
     .poster {
         cursor: pointer;
@@ -17,6 +19,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    line-height: 24px;
+}
+
+.title {
+    font-size: 1.2rem;
+    line-height: 32px;
+    font-weight: 600;
 }
 
 .subImgBox {
@@ -35,4 +44,15 @@
   position: relative !important;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 15px;
+}
+
+.link {
+    
+    text-decoration: none;
+    color: #FFF;
+    cursor: pointer;
+    font-weight: bold;
+}
+.linkWrap {
+    margin: 1rem 0;
 }

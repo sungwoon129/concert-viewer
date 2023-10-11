@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import usePromise from "@/lib/hooks/usePromise";
 import Image from "next/image";
 import style from "../style/detail.module.css";
+import Back from "./Back";
 
 const toJson = (xml) => {
   const jsonStr = convert.xml2json(xml.data, {
@@ -71,7 +72,7 @@ const ConcertItemAndFestivalDetail = ({ itemId }) => {
 
   return (
     <>
-      <Header />
+      <Back />
       {loading && (
         <div>
           <p>로딩중...</p>
@@ -102,7 +103,7 @@ const ConcertItemAndFestivalDetail = ({ itemId }) => {
               />
             </div>
             <div className={style.description}>
-              <div>{prfnm._text}</div>
+              <div className={style.title}>{prfnm._text}</div>
               <div>
                 기간 : {prfpdfrom._text} - {prfpdto._text}
               </div>

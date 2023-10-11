@@ -6,6 +6,7 @@ import usePromise from "@/lib/hooks/usePromise";
 import Image from "next/image";
 import Link from "next/link";
 import style from "../../style/detail.module.css";
+import Back from "../Back";
 
 const toJson = (xml) => {
   const jsonStr = convert.xml2json(xml.data, {
@@ -70,7 +71,7 @@ const ExhibitionDetail = ({ itemId }) => {
 
   return (
     <>
-      <Header />
+      <Back />
       {loading && (
         <div>
           <p>로딩중...</p>
@@ -106,7 +107,7 @@ const ExhibitionDetail = ({ itemId }) => {
             </div>
             <div className={style.description}>
               <div>
-                <div>{title._text}</div>
+                <div className={style.title}>{title._text}</div>
                 <br />
                 <div>{subTitle._text}</div>
               </div>
@@ -118,9 +119,11 @@ const ExhibitionDetail = ({ itemId }) => {
               </div>
               <div>{price._text}</div>
               <div>문의처 {phone._text}</div>
-              <div>
+              <div className={style.linkWrap}>
                 <div>
-                  <Link href={placeUrl._text}>공연장 홈</Link>
+                  <Link href={placeUrl._text} className={style.link}>
+                    공연장 홈으로 이동
+                  </Link>
                 </div>
               </div>
             </div>

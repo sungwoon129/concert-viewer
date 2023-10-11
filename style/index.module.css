@@ -4,6 +4,7 @@
      display: flex;
     gap: 20px 2%;
     flex-wrap: wrap;
+    min-height: 768px;
     
 }
 .ConcertListBlock {
@@ -23,6 +24,7 @@
 
 .thumbnail {
     margin-right: 1rem;
+    margin-bottom: 1rem;
   }
   .thum_img {
     display: block;
@@ -30,8 +32,8 @@
     object-fit: cover;
   }
   .contents {
+    width: 100%;
     .sub {
-      margin: 0;
       color: #EFEFEF;
     }
     .contensts-p {
