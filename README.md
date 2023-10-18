@@ -10,11 +10,12 @@ Next.js를 선택한 이유는 작고 구체적인 목표를 가진 애플리케
 ## 개발 환경
 
 - Next.js (CSR)
-- IDE - Visual Studio Code
+- IDE : Visual Studio Code
+- Deploy : GCP(EC2)
 
 ## AWS 배포 주소
 
-http://34.82.120.250:3000/
+http://34.82.120.250:3000/ [수정 중]
 
 ## Screen Shot
 
