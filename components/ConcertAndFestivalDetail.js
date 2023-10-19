@@ -18,7 +18,7 @@ const toJson = (xml) => {
 const ConcertItemAndFestivalDetail = ({ itemId }) => {
   const [loading, response, error] = usePromise(() => {
     return axios.get(
-      `${process.env.NEXT_PUBLIC_URL}/api/classic_and_festival/${itemId}?service=${process.env.NEXT_PUBLIC_CONCERTKEY}`
+      `/api/classic_and_festival/${itemId}?service=${process.env.NEXT_PUBLIC_CONCERTKEY}`
     );
   }, [itemId]);
 

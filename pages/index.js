@@ -18,7 +18,7 @@ let to = moment().endOf("week").add(1, "d").endOf("week").format("YYYYMMDD");
 const getConcertList = ({ pageParam = initPage }) =>
   axios
     .get(
-      `${process.env.NEXT_PUBLIC_URL}/api/classic?service=${process.env.NEXT_PUBLIC_CONCERTKEY}&stdate=${from}&eddate=${to}&cpage=${pageParam}&rows=9&prfstate=01,02&shcate=CCCA&signgucode=`
+      `/api/classic?service=${process.env.NEXT_PUBLIC_CONCERTKEY}&stdate=${from}&eddate=${to}&cpage=${pageParam}&rows=9&prfstate=01,02&shcate=CCCA&signgucode=`
     )
     .then((response) => {
       const result = convert.xml2json(response.data, {

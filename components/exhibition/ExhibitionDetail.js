@@ -19,7 +19,7 @@ const toJson = (xml) => {
 const ExhibitionDetail = ({ itemId }) => {
   const [loading, response, error] = usePromise(() => {
     return axios.get(
-      `${process.env.NEXT_PUBLIC_URL}/api/exhibition/detail?serviceKey=${process.env.NEXT_PUBLIC_EXHIBITIONKEY}&seq=${itemId}`
+      `/api/exhibition/detail?serviceKey=${process.env.NEXT_PUBLIC_EXHIBITIONKEY}&seq=${itemId}`
     );
   }, [itemId]);
 
