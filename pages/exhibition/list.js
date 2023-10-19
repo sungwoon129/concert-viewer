@@ -18,7 +18,7 @@ let to = moment().endOf("week").add(1, "d").endOf("week").format("YYYYMMDD");
 const getExhibitionList = async ({ pageParam = initPage }) =>
   await axios
     .get(
-      `${process.env.NEXT_PUBLIC_URL}/api/exhibition/list/realm?serviceKey=${process.env.NEXT_PUBLIC_EXHIBITIONKEY}&sido=서울&realmCode=D000&from=${from}&to=${to}&place=1&cPage=${pageParam}&rows=9&sortStdr=1`
+      `/api/exhibition/list/realm?serviceKey=${process.env.NEXT_PUBLIC_EXHIBITIONKEY}&sido=서울&realmCode=D000&from=${from}&to=${to}&place=1&cPage=${pageParam}&rows=9&sortStdr=1`
     )
     .then((response) => {
       const result = convert.xml2json(response.data, {
@@ -30,7 +30,12 @@ const getExhibitionList = async ({ pageParam = initPage }) =>
       const { totalCount, perforList } = jsonData.response.msgBody;
       const { comMsgHeader } = jsonData.response;
 
-      const list = Array.isArray(perforList) ? perforList : [perforList];
+      let list = [];
+      if (totalCount > 1) {
+        list = perforList;
+      } else if (totalCount == 1) {
+        list = [perforList];
+      }
 
       return {
         list,
@@ -85,10 +90,10 @@ const ExhibitionList = () => {
           <div className={style.ConcertListBlock}>
             {data.pages &&
               data.pages.map((page) =>
-                page.list ? (
-                  page.list.map((item) => (
-                    <ExhibitionItem key={item.seq._text} item={item} />
-                  ))
+                page.list && page.list.length > 0 ? (
+                  page.list.map((item, idx) => {
+                    return <ExhibitionItem key={idx} item={item} />;
+                  })
                 ) : (
                   <>
                     <div>다음 주 전시/공연 일정이 없습니다.</div>
