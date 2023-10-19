@@ -5,17 +5,17 @@
 특정한 조건에 적합한 전시/공연 정보를 사용자에게 노출하는 기능을 가진 애플리케이션이기 때문에 API를 통해서 정보를 받아오고, 별도의 DB를 구성하지 않았습니다.
 Next.js를 선택한 이유는 작고 구체적인 목표를 가진 애플리케이션이므로, 프론트와 백엔드를 JavaScript라는 하나의 언어로 빠르게 구현할 수 있고 프론트만 존재할 경우, CORS 문제로 API를 원활히 받아오기 어려울 것이라 생각해 CORS 문제를 프록시를 통해 우회할 수 있는 Next.js를 선택했습니다.
 
-또한 SSR(Server Side Rendering)과 CSR(Clinet Side Rendering)의 구현과정에서의 차이를 경험해보기 위해 Next.js 에서 지원하는 CSR과 SSR 양쪽 모두 구현해보았으며, 무한 스크롤이나 DB가 필요하지 않다는 점등이 서버 측의 기능이 크게 중요하지 않다고 판단하여 CSR로 구현한 버전만 AWS에 배포하였습니다.
+또한 SSR(Server Side Rendering)과 CSR(Clinet Side Rendering)의 구현과정에서의 차이를 경험해보기 위해 Next.js 에서 지원하는 CSR과 SSR 양쪽 모두 구현해보았으며, DB가 필요하지 않다는 점등이 서버 측의 기능이 크게 중요하지 않다고 판단하여 CSR로 구현한 버전만 AWS에 배포하였습니다.
 
 ## 개발 환경
 
 - Next.js (CSR)
 - IDE : Visual Studio Code
-- Deploy : GCP(EC2)
+- Deploy : GCP(e2-micro)
 
 ## AWS 배포 주소
 
-http://34.82.120.250:3000/ [수정 중]
+http://34.82.120.250:3000/
 
 ## Screen Shot
 
