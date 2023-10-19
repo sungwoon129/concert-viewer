@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prod": "env-cmd -f .env.prod next start",
+    "prod": "env-cmd -f .env.production next start",
     "local": "env-cmd -f .env.local next start",
     "lint": "next lint"
   },
