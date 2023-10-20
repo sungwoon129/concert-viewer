@@ -11,3 +11,9 @@ body {
 div {
     color: #e5e5e5;
 }
+
+.spinner {
+    margin : 0 auto;
+    display: flex;
+    justify-content: center;
+}

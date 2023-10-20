@@ -9,6 +9,7 @@ import convert from "xml-js";
 import moment from "moment";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Loader from "@/components/Spinner";
 
 const initPage = 1;
 const initOffset = 9;
@@ -75,7 +76,7 @@ const Index = () => {
     <>
       <Header />
       <div className={style.ConcertListBlock}>
-        {status === "loading" && <p>불러오는 중</p>}
+        {status === "loading" && <Loader />}
 
         {status === "error" && <p>{error.message}</p>}
 
@@ -95,7 +96,7 @@ const Index = () => {
 
         <div ref={bottom} />
 
-        {isFetchingNextPage && <p>계속 불러오는 중</p>}
+        {isFetchingNextPage && <Loader />}
       </div>
       <Footer />
     </>

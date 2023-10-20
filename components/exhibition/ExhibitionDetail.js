@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import style from "../../style/detail.module.css";
 import Back from "../Back";
+import Loader from "../Spinner";
 
 const toJson = (xml) => {
   const jsonStr = convert.xml2json(xml.data, {
@@ -27,19 +28,19 @@ const ExhibitionDetail = ({ itemId }) => {
     return (
       <>
         <Header />
-        <div>
-          <p>로딩중...</p>
+        <Back />
+        <div className={style.contentsWrap}>
+          <Loader />
         </div>
         <Footer />
       </>
     );
   }
-
-  if (!response) return null;
   if (error)
     return (
       <>
         <Header />
+        <Back />
         <div>
           <p>데이터 로딩 중 에러가 발생하였습니다.</p>
         </div>
@@ -48,7 +49,6 @@ const ExhibitionDetail = ({ itemId }) => {
     );
 
   const jsonData = toJson(response);
-  console.log(jsonData);
 
   const {
     seq,

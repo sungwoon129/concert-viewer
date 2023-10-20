@@ -9,6 +9,7 @@ import moment from "moment";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ExhibitionItem from "@/components/exhibition/ExhibitionItem";
+import Loader from "@/components/Spinner";
 
 const initPage = 1;
 const initOffset = 9;
@@ -82,7 +83,7 @@ const ExhibitionList = () => {
     <>
       <Header />
       <div className={style.ConcertListBlock}>
-        {status === "loading" && <p>불러오는 중</p>}
+        {status === "loading" && <Loader />}
 
         {status === "error" && <p>{error.message}</p>}
 
@@ -96,7 +97,18 @@ const ExhibitionList = () => {
                   })
                 ) : (
                   <>
-                    <div>다음 주 전시/공연 일정이 없습니다.</div>
+                    <div>
+                      다음 주 전시/공연 일정이 없습니다. <br></br>
+                      목록에 표시되지 않은 더 많은 전시회 일정을 알려면 아래
+                      사이트에 방문해주세요. <br />
+                      <a
+                        href="https://korean.visitseoul.net/exhibition#tabExhibitions&selectedMonth=202310&selectedDay=20231023"
+                        className={style.link}
+                        target="_blank"
+                      >
+                        서울 가볼만한 전시회 및 공연 정보 보러가기
+                      </a>
+                    </div>
                   </>
                 )
               )}
