@@ -14,7 +14,7 @@ Next.js를 선택한 이유는 작고 구체적인 목표를 가진 애플리케
 
 - Next.js (CSR)
 - IDE : Visual Studio Code
-- Deploy : GCP(e2-micro)
+- Deploy : GCP
 
 ## AWS 배포 주소
 
