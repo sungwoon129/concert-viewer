@@ -18,7 +18,7 @@ API 호출 횟수나 호출하는 데이터의 크기에 신경을 쓴 이유는
 - IDE : Visual Studio Code
 - Deploy : GCP
 
-## AWS 배포 주소
+## GCP 배포 주소
 
 http://34.82.120.250:3000/
 
