@@ -32,16 +32,16 @@ const getExhibitionList = async ({ pageParam = initPage }) =>
       const { comMsgHeader } = jsonData.response;
 
       let list = [];
-      if (totalCount > 1) {
+      if (totalCount._text > 1) {
         list = perforList;
-      } else if (totalCount == 1) {
+      } else if (totalCount._text == 1) {
         list = [perforList];
       }
 
       return {
         list,
         cPage: pageParam,
-        total: totalCount,
+        total: totalCount._text,
         header: comMsgHeader,
       };
     });
@@ -90,11 +90,11 @@ const ExhibitionList = () => {
         {status === "success" && (
           <div className={style.ConcertListBlock}>
             {data.pages &&
-              data.pages.map((page) =>
-                page.list && page.list.length > 0 ? (
-                  page.list.map((item, idx) => {
-                    return <ExhibitionItem key={idx} item={item} />;
-                  })
+              data.pages.map((page) => {
+                return page.list && page.list.length > 0 ? (
+                  page.list.map((item, idx) => (
+                    <ExhibitionItem key={idx} item={item} />
+                  ))
                 ) : (
                   <>
                     <div>
@@ -110,8 +110,8 @@ const ExhibitionList = () => {
                       </a>
                     </div>
                   </>
-                )
-              )}
+                );
+              })}
           </div>
         )}
 

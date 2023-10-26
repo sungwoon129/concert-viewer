@@ -27,8 +27,6 @@ const ExhibitionDetail = ({ itemId }) => {
   if (loading) {
     return (
       <>
-        <Header />
-        <Back />
         <div className={style.contentsWrap}>
           <Loader />
         </div>
@@ -48,100 +46,102 @@ const ExhibitionDetail = ({ itemId }) => {
       </>
     );
 
-  const jsonData = toJson(response);
+  if (response) {
+    const jsonData = toJson(response);
 
-  const {
-    seq,
-    title,
-    startDate,
-    endDate,
-    place,
-    realmName,
-    area,
-    subTitle,
-    price,
-    contents1,
-    contents2,
-    url,
-    phone,
-    imgUrl,
-    placeUrl,
-    placeAddr,
-  } = jsonData.response.msgBody.perforInfo;
+    const {
+      seq,
+      title,
+      startDate,
+      endDate,
+      place,
+      realmName,
+      area,
+      subTitle,
+      price,
+      contents1,
+      contents2,
+      url,
+      phone,
+      imgUrl,
+      placeUrl,
+      placeAddr,
+    } = jsonData.response.msgBody.perforInfo;
 
-  return (
-    <>
-      <Back />
-      {loading && (
-        <div>
-          <p>로딩중...</p>
-        </div>
-      )}
-      {error && (
-        <div>
-          <p>데이터 호출에 실패하였습니다.</p>
-        </div>
-      )}
-      {response && (
-        <>
-          <div className={style.contentsWrap}>
-            <div className={style.imgBox}>
+    return (
+      <>
+        <Back />
+        {loading && (
+          <div>
+            <p>로딩중...</p>
+          </div>
+        )}
+        {error && (
+          <div>
+            <p>데이터 호출에 실패하였습니다.</p>
+          </div>
+        )}
+        {response && (
+          <>
+            <div className={style.contentsWrap}>
+              <div className={style.imgBox}>
+                <Image
+                  src={imgUrl._text}
+                  className={style.poster}
+                  onClick={() => {
+                    if (url._text) return window.open(`${url._text}`, "_blank");
+                    else
+                      return window.open(
+                        `https://www.google.com/search?q=${encodeURI(
+                          title._text
+                        )}`,
+                        "_blank"
+                      );
+                  }}
+                  alt="포스터 이미지"
+                  sizes="210px"
+                  width={300}
+                  height={400}
+                />
+              </div>
+              <div className={style.description}>
+                <div>
+                  <div className={style.title}>{title._text}</div>
+                  <br />
+                  <div>{subTitle._text}</div>
+                </div>
+                <div>
+                  <div>
+                    {startDate._text} - {endDate._text}
+                  </div>
+                  <div>{placeAddr._text}</div>
+                </div>
+                <div>{price._text}</div>
+                <div>문의처 {phone._text}</div>
+                <div className={style.linkWrap}>
+                  <div>
+                    <Link href={placeUrl._text} className={style.link}>
+                      공연장 홈으로 이동
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={style.subImgBox}>
               <Image
                 src={imgUrl._text}
-                className={style.poster}
-                onClick={() => {
-                  if (url._text) return window.open(`${url._text}`, "_blank");
-                  else
-                    return window.open(
-                      `https://www.google.com/search?q=${encodeURI(
-                        title._text
-                      )}`,
-                      "_blank"
-                    );
-                }}
-                alt="포스터 이미지"
-                sizes="210px"
-                width={300}
-                height={400}
+                alt="기타 이미지"
+                layout="fill"
+                sizes="180px"
+                className="subImg"
               />
             </div>
-            <div className={style.description}>
-              <div>
-                <div className={style.title}>{title._text}</div>
-                <br />
-                <div>{subTitle._text}</div>
-              </div>
-              <div>
-                <div>
-                  {startDate._text} - {endDate._text}
-                </div>
-                <div>{placeAddr._text}</div>
-              </div>
-              <div>{price._text}</div>
-              <div>문의처 {phone._text}</div>
-              <div className={style.linkWrap}>
-                <div>
-                  <Link href={placeUrl._text} className={style.link}>
-                    공연장 홈으로 이동
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={style.subImgBox}>
-            <Image
-              src={imgUrl._text}
-              alt="기타 이미지"
-              layout="fill"
-              sizes="180px"
-              className="subImg"
-            />
-          </div>
-        </>
-      )}
-      <Footer />
-    </>
-  );
+          </>
+        )}
+        <Footer />
+      </>
+    );
+  }
 };
 
 export default ExhibitionDetail;
