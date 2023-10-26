@@ -3,8 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    imageSizes: [32, 64, 96, 124, 192, 256, 320, 384],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [128, 256],
+    deviceSizes: [1080, 1920],
     remotePatterns: [
       {
         protocol: "http",

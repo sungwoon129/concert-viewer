@@ -37,15 +37,17 @@
   }
   .contents {
     width: 100%;
-    .sub {
-      color: #EFEFEF;
-    }
-    .contensts-p {
-      margin: 0;
-      line-height: 1.5;
-      margin-top: 0.5rem;
-      white-space: normal;
-    }
+
+  }
+
+  .sub {
+    color: #EFEFEF;
+  }
+  .contensts-p {
+    margin: 0;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+    white-space: normal;
   }
 
 .link {

@@ -28,8 +28,9 @@ const ExhibitionItem = ({ item }) => {
               className={styles.thum_img}
               src={thumbnail._text}
               alt="thumbnail"
-              sizes="250px"
-              fill
+              width={256}
+              height={320}
+              layout="fixed"
             />
           </div>
         </Link>

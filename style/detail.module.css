@@ -10,9 +10,11 @@
     justify-content: center;
     margin-bottom: 1.5rem;
 
-    .poster {
-        cursor: pointer;
-    }
+
+}
+
+.poster {
+    cursor: pointer;
 }
 
 .description {
@@ -32,11 +34,10 @@
     width: 100%;
     position: relative;
 
+}
 
-    .subImg + .subImg {
-        margin-left: 2rem;
-    }
-
+.subImg + .subImg {
+    margin-left: 2rem;
 }
 
 .subImg {
