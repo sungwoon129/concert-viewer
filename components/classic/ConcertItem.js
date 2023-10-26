@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import styles from "../../style/index.module.css";
+import HtmlDecoder from "lodash";
+import Image from "next/image";
 
 const ConcertItem = ({ item, category }) => {
   const {
@@ -22,16 +24,17 @@ const ConcertItem = ({ item, category }) => {
       {poster && (
         <div className={styles.thumbnail}>
           <Link href={{ pathname: url, query: { category } }}>
-            <img
+            <Image
               className={styles.thum_img}
               src={poster._text}
               alt="thumbnail"
+              fill
             />
           </Link>
         </div>
       )}
       <div className={styles.contents}>
-        <h3 className={styles.sub}>{prfnm._text}</h3>
+        <h3 className={styles.sub}>{HtmlDecoder.unescape(prfnm._text)}</h3>
         <div>
           {prfpdfrom._text} - {prfpdto._text}
         </div>
