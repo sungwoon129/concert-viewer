@@ -120,7 +120,11 @@ const ExhibitionDetail = ({ itemId }) => {
                 <div>문의처 {phone._text}</div>
                 <div className={style.linkWrap}>
                   <div>
-                    <Link href={placeUrl._text} className={style.link}>
+                    <Link
+                      href={placeUrl._text}
+                      className={style.link}
+                      target="_blank"
+                    >
                       공연장 홈으로 이동
                     </Link>
                   </div>
