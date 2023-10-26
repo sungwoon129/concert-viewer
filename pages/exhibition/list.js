@@ -19,7 +19,7 @@ let to = moment().endOf("week").add(1, "d").endOf("week").format("YYYYMMDD");
 const getExhibitionList = async ({ pageParam = initPage }) =>
   await axios
     .get(
-      `/api/exhibition/list/realm?serviceKey=${process.env.NEXT_PUBLIC_EXHIBITIONKEY}&sido=서울&realmCode=D000&from=${from}&to=${to}&place=1&cPage=${pageParam}&rows=9&sortStdr=1`
+      `/api/exhibition/list/realm?serviceKey=${process.env.NEXT_PUBLIC_EXHIBITIONKEY}&sido=서울&realmCode=D000&from=${from}&to=${to}&cPage=${pageParam}&rows=9&sortStdr=1`
     )
     .then((response) => {
       const result = convert.xml2json(response.data, {
