@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import moment from "moment";
+import momentTz from "moment-timezone";
 import style from "../style/header.module.css";
 
 const Category = () => {
@@ -49,8 +49,13 @@ const Category = () => {
 };
 
 const Header = () => {
-  let from = moment().endOf("week").add(1, "d").format("YYYY.MM.DD");
-  let to = moment()
+  let from = momentTz()
+    .tz("Asia/Seoul")
+    .endOf("week")
+    .add(1, "d")
+    .format("YYYY.MM.DD");
+  let to = momentTz()
+    .tz("Asia/Seoul")
     .endOf("week")
     .add(1, "d")
     .endOf("week")

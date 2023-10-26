@@ -5,7 +5,7 @@ import useLocalStorage from "use-local-storage";
 import { useObserver } from "../../lib/hooks/useObserver";
 import style from "../../style/index.module.css";
 import convert from "xml-js";
-import moment from "moment";
+import momentTz from "moment-timezone";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ExhibitionItem from "@/components/exhibition/ExhibitionItem";
@@ -13,8 +13,17 @@ import Loader from "@/components/Spinner";
 
 const initPage = 1;
 const initOffset = 9;
-let from = moment().endOf("week").add(1, "d").format("YYYYMMDD");
-let to = moment().endOf("week").add(1, "d").endOf("week").format("YYYYMMDD");
+let from = momentTz()
+  .tz("Asia/Seoul")
+  .endOf("week")
+  .add(1, "d")
+  .format("YYYYMMDD");
+let to = momentTz()
+  .tz("Asia/Seoul")
+  .endOf("week")
+  .add(1, "d")
+  .endOf("week")
+  .format("YYYYMMDD");
 
 const getExhibitionList = async ({ pageParam = initPage }) =>
   await axios

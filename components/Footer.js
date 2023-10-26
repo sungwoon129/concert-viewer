@@ -1,10 +1,10 @@
-import moment from "moment";
+import momentTz from "moment-timezone";
 
 const Footer = () => {
   return (
     <div className="footer">
       <p>
-        · 집계기간 : 최종집계 {moment().format("YYYY-MM-DD")}
+        · 집계기간 : 최종집계 {momentTz().tz("Asia/Seoul").format("YYYY-MM-DD")}
         <br></br>· 집계대상 : 모든 공연 데이터 전송기관
         <br></br>· 아래 집계 데이터는 공연예술통합전산망 연계기관의
         티켓판매시스템에서 발권된 분량을 기준으로 제공함으로 해당 공연의 전체

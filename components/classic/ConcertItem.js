@@ -22,16 +22,20 @@ const ConcertItem = ({ item, category }) => {
   return (
     <div className={styles.ConcertItemBlock}>
       {poster && (
-        <div className={styles.thumbnail}>
-          <Link href={{ pathname: url, query: { category } }}>
+        <Link
+          href={{ pathname: url, query: { category } }}
+          className={styles.itemLink}
+        >
+          <div className={styles.thumbnail}>
             <Image
               className={styles.thum_img}
               src={poster._text}
               alt="thumbnail"
+              sizes="250px"
               fill
             />
-          </Link>
-        </div>
+          </div>
+        </Link>
       )}
       <div className={styles.contents}>
         <h3 className={styles.sub}>{HtmlDecoder.unescape(prfnm._text)}</h3>
