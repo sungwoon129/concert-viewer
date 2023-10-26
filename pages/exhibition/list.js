@@ -117,7 +117,7 @@ const ExhibitionList = () => {
 
         <div ref={bottom} />
 
-        {isFetchingNextPage && <p>계속 불러오는 중</p>}
+        {isFetchingNextPage && <Loader />}
       </div>
       <Footer />
     </>
