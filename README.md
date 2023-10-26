@@ -14,7 +14,9 @@ API 호출 횟수나 호출하는 데이터의 크기에 신경을 쓴 이유는
 
 ## 개발 환경
 
-- Next.js (CSR)
+- node v18.18.0
+- npm 10.1.0
+- Next.js 14.0.0
 - IDE : Visual Studio Code
 - Deploy : GCP
 
