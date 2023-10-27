@@ -24,13 +24,10 @@ const ExhibitionItem = ({ item }) => {
       {thumbnail && (
         <Link href={{ pathname: url, query: { category: "exhibition" } }}>
           <div className={styles.thumbnail}>
-            <Image
+            <img
               className={styles.thum_img}
               src={thumbnail._text}
               alt="thumbnail"
-              width={256}
-              height={320}
-              layout="fixed"
             />
           </div>
         </Link>

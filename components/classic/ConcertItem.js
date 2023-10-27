@@ -27,13 +27,10 @@ const ConcertItem = ({ item, category }) => {
           className={styles.itemLink}
         >
           <div className={styles.thumbnail}>
-            <Image
+            <img
               className={styles.thum_img}
               src={poster._text}
               alt="thumbnail"
-              width={256}
-              height={320}
-              layout="fixed"
             />
           </div>
         </Link>
