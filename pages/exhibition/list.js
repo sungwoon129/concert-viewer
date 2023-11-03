@@ -70,7 +70,8 @@ const ExhibitionList = () => {
   } = useInfiniteQuery("exhibitionList", getExhibitionList, {
     getNextPageParam: (lastPage) => {
       const { cPage, list, total } = lastPage;
-      if (total <= 1 || list.length < 9) return undefined;
+      //if (total <= 1 || list.length < 9) return undefined;
+      if (total <= 9) return undefined;
 
       return Number(cPage) + 1;
     },
