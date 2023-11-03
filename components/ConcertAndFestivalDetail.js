@@ -77,7 +77,7 @@ const ConcertItemAndFestivalDetail = ({ itemId }) => {
         <Back />
         <div className={style.contentsWrap}>
           <div className={style.imgBox}>
-            <Image
+            <img
               src={poster._text}
               className={style.poster}
               onClick={() => {
@@ -109,13 +109,17 @@ const ConcertItemAndFestivalDetail = ({ itemId }) => {
           </div>
         </div>
         <div className={style.subImgBox}>
-          <Image
-            src={styurls.styurl._text}
-            alt="기타 이미지"
-            layout="fill"
-            sizes="180px"
-            className="subImg"
-          />
+          {styurls.styurl ? (
+            <img
+              src={styurls.styurl._text}
+              alt="기타 이미지"
+              layout="fill"
+              sizes="180px"
+              className="subImg"
+            />
+          ) : (
+            <></>
+          )}
         </div>
         <Footer />
       </>

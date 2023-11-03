@@ -85,7 +85,7 @@ const ExhibitionDetail = ({ itemId }) => {
           <>
             <div className={style.contentsWrap}>
               <div className={style.imgBox}>
-                <Image
+                <img
                   src={imgUrl._text}
                   className={style.poster}
                   onClick={() => {
