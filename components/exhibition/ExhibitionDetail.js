@@ -133,7 +133,12 @@ const ExhibitionDetail = ({ itemId }) => {
             </div>
             <div className={style.subImgBox}>
               {/* 프로덕션 서버 성능이 매우 좋지 않아 <Image> 가 로딩 속도가 확연히 느려 <img>로 변경 */}
-              <img src={imgUrl._text} alt="기타 이미지" width={180} />
+              <img
+                src={imgUrl._text}
+                alt="기타 이미지"
+                width={180}
+                className="subIgg"
+              />
 
               {/* <Image
                 src={imgUrl._text}
