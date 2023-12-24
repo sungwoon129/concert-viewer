@@ -132,13 +132,15 @@ const ExhibitionDetail = ({ itemId }) => {
               </div>
             </div>
             <div className={style.subImgBox}>
-              <Image
+              <img src={imgUrl._text} alt="기타 이미지" width={180} />
+
+              {/* <Image
                 src={imgUrl._text}
                 alt="기타 이미지"
                 layout="fill"
                 sizes="180px"
                 className="subImg"
-              />
+              /> */}
             </div>
           </>
         )}
